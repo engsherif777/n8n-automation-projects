@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sweet Haven Bakery offers freshly baked cakes, cupcakes, and croissants. Experience the finest artisanal baked goods.">
+  <meta name="keywords" content="bakery, cakes, cupcakes, croissants, artisanal baking, Sweet Haven">
+  <title>Sweet Haven Bakery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://via.placeholder.com/32?text=SH" type="image/x-icon">
+  <style>
+    /* Theme colors */
+    :root {
+      --primary: #b388eb; /* Light Purple */
+      --primary-dark: #8c6ade;
+      --secondary: #6fdc8c; /* Green */
+      --secondary-dark: #56c874;
+      --light: #f9f9f9;
+      --dark: #2e2e2e;
+
+      /* Custom CSS variables for @n8n/chat overrides */
+      --chat--color-primary: #b388eb !important; /* Light Purple for primary elements */
+      --chat--color-primary-shade-50: #a776e0 !important; /* Slightly darker shade of primary */
+      --chat--color-primary-shade-100: #8c6ade !important; /* Darker shade of primary */
+      --chat--color-secondary: #6fdc8c !important; /* Green for secondary elements */
+      --chat--color-secondary-shade-50: #56c874 !important; /* Darker shade of secondary */
+      --chat--color-white: #ffffff !important; /* White */
+      --chat--color-light: #6fdc8c !important; /* Lighter purple for backgrounds */
+      --chat--color-light-shade-50: #d9c3ed !important; /* Shade of light */
+      --chat--color-light-shade-100: #c0a3e0 !important; /* Darker shade of light */
+      --chat--color-medium: #a8a8a8 !important; /* Medium gray */
+      --chat--color-dark: #2e2e2e !important; /* Dark gray for text */
+      --chat--color-disabled: #cccccc !important; /* Disabled color */
+      --chat--color-typing: #8c6ade !important; /* Typing indicator in darker purple */
+      --chat--header--background: #8c6ade !important; /* Professional header background */
+      --chat--header--color: #ffffff !important; /* White text for header */
+      --chat--border-radius: 12px !important; /* Softer corners */
+      --chat--shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
+      --chat--font-family: 'Quicksand', sans-serif !important; /* Match website font */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      background-color: var(--primary-dark);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--secondary);
+      color: white;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .product h3 {
+      margin: 0.8rem 0 0.5rem;
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+    }
+
+    .product p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      border: none;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-dark);
+      transform: scale(1.05);
+    }
+
+    .testimonials {
+      background-color: var(--light);
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    .testimonial cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      color: var(--primary-dark);
+    }
+
+    .contact {
+      background-color: var(--primary);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background-color: var(--secondary-dark);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: var(--secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--primary-dark);
+      color: white;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .products {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sweet Haven Bakery</h1>
+    <p>Freshly baked artisanal goods with love and care</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Welcome to Sweet Haven Bakery</h2>
+    <p>Discover our selection of handcrafted pastries and cakes, made with the finest ingredients.</p>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="bott/cake.jpg" alt="Celebration Cake">
+      <h3>Celebration Cake</h3>
+      <p>Perfect for birthdays, weddings, and special occasions. Custom designs available.</p>
+      <button type="button" class="btn">Order Now</button>
+    </div>
+    <div class="product">
+      <img src="bott/cupcake.jpg" alt="Chocolate Cupcake">
+      <h3>Chocolate Cupcake</h3>
+      <p>Rich, moist chocolate topped with creamy vanilla frosting. A customer favorite.</p>
+      <button type="button" class="btn">Order Now</button>
+    </div>
+    <div class="product">
+      <img src="bott/croissant.jpg" alt="Butter Croissant">
+      <h3>Butter Croissant</h3>
+      <p>Flaky, golden croissants baked fresh daily with premium butter.</p>
+      <button type="button" class="btn">Order Now</button>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      "The best bakery in town! Their cakes are absolutely divine."
+      <cite>- Jane Doe</cite>
+    </div>
+    <div class="testimonial">
+      "Fresh and delicious every time. Highly recommend the croissants!"
+      <cite>- John Smith</cite>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sweet Haven Bakery | All Rights Reserved | Designed with care</p>
+  </footer>
+
+  <!-- Chat widget -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <div id="n8n-chat"></div>
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    try {
+      createChat({
+        webhookUrl: 'http://localhost:5678/webhook/de551da0-5936-4c36-ae1d-ab2e5c72fd81/chat', // Replace with production URL when deploying
+        target: '#n8n-chat',
+        mode: 'popover', // Changed to popover for a more professional, non-intrusive integration
+        initialMessages: ['Hi there! 👋', 'How can I assist you today?'],
+        i18n: {
+          en: {
+            title: 'Sweet Haven Bakery Customer Support Bot',
+            subtitle: "I'm here to help with your questions 24/7.",
+            inputPlaceholder: 'Type your question...',
+          },
+        }
+      });
+    } catch (error) {
+      console.error('Failed to initialize chat widget:', error);
+    }
+  </script>
+</body>
+</html>
