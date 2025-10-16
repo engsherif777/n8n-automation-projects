@@ -38,7 +38,7 @@ It can respond to user queries, simulate a live agent experience, and be embedde
 
 
 LinkedIn post containing a video demonstration of the chatbot:
-
+https://www.linkedin.com/posts/sherif-ahmed-6824a4385_im-proud-to-demonstrate-my-first-n8n-project-activity-7384722518508683264-WxUz?utm_source=share&utm_medium=member_ios&rcm=ACoAAF7vSMIBtyNplPvzy04SEp1xFgZTGsUSVIY
 
 ## 🧩 Website Integration
 The chatbot frontend files are available here:
