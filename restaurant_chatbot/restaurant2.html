@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ristorante Bellavista offers authentic Italian dining with elegant ambiance and exquisite cuisine.">
+  <meta name="keywords" content="Italian restaurant, authentic dining, pasta, pizza, Ristorante Bellavista">
+  <title>La Lanterna Dorata - Authentic Italian Dining</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://via.placeholder.com/32?text=LL" type="image/x-icon">
+  <style>
+    /* Theme colors - Elegant navy blue theme for sophistication, with gold accents for warmth */
+    :root {
+      --primary: #001f3f; /* Deep navy blue for headers and accents */
+      --primary-dark: #000f1f; /* Darker navy for depth */
+      --secondary: #d4af37; /* Gold for highlights and calls to action */
+      --secondary-dark: #b8932e; /* Darker gold */
+      --light: #f8f9fa; /* Soft off-white for backgrounds */
+      --dark: #212529; /* Charcoal gray for text */
+      --neutral: #6c757d; /* Neutral gray for subtitles */
+
+      /* Base styles for Wix-like professionalism: clean, modern, spacious */
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Lato', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: padding 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 1rem 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    nav {
+      background-color: var(--primary-dark);
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--secondary);
+      transition: var(--transition);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      background-image: url('Gemini_Generated_Image_um2fs0um2fs0um2f.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 31, 63, 0.6); /* Navy overlay for readability */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero h2 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.3s;
+      animation-fill-mode: backwards;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .menu h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .menu-item {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-item h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      margin: 1rem 0 0.5rem;
+    }
+
+    .menu-item p {
+      font-size: 1.1rem;
+      color: var(--neutral);
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-item .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .testimonials {
+      background-color: var(--light);
+      padding: 5rem 2rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+    }
+
+    .testimonial {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--dark);
+      padding: 1.5rem;
+      border-left: 4px solid var(--secondary);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial cite {
+      display: block;
+      margin-top: 1rem;
+      font-style: normal;
+      color: var(--neutral);
+      font-weight: 600;
+    }
+
+    .contact {
+      background-color: var(--primary);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      outline: none;
+      background: white;
+      box-shadow: 0 0 0 2px var(--secondary);
+    }
+
+    .contact button {
+      background-color: var(--secondary);
+      border: none;
+      color: var(--primary-dark);
+      padding: 1.2rem 2.5rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .contact button:hover {
+      background-color: var(--secondary-dark);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--primary-dark);
+      color: white;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .menu, .testimonials, .contact {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <h1>Ristorante Bellavista</h1>
+    <p>Authentic Italian Cuisine in an Elegant Setting</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to Ristorante Bellavista</h2>
+      <p>Discover the essence of Italy through our meticulously crafted dishes and warm hospitality.</p>
+    </div>
+  </section>
+
+  <section class="menu">
+    <h2>Our Signature Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <h3>Bruschetta Classica</h3>
+        <p>Fresh tomatoes, basil, garlic, and olive oil on toasted ciabatta.</p>
+        <span class="price">$12</span>
+      </div>
+      <div class="menu-item">
+        <h3>Spaghetti Carbonara</h3>
+        <p>Pancetta, pecorino cheese, eggs, and black pepper.</p>
+        <span class="price">$18</span>
+      </div>
+      <div class="menu-item">
+        <h3>Pizza Margherita</h3>
+        <p>Tomato sauce, mozzarella, fresh basil, and olive oil.</p>
+        <span class="price">$15</span>
+      </div>
+      <div class="menu-item">
+        <h3>Tiramisu</h3>
+        <p>Coffee-soaked ladyfingers with mascarpone cream.</p>
+        <span class="price">$10</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Guests Say</h2>
+    <div class="testimonial">
+      "An unforgettable dining experience with authentic Italian taste."
+      <cite>- Maria Rossi</cite>
+    </div>
+    <div class="testimonial">
+      "The ambiance and food are simply perfect. Highly recommend!"
+      <cite>- Luca Bianchi</cite>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ristorante Bellavista | All Rights Reserved | Crafted with passion</p>
+  </footer>
+
+  <!-- Chat widget -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <div id="n8n-chat"></div>
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    try {
+      createChat({
+        webhookUrl: 'http://localhost:5678/webhook/f6e9453d-3a37-4b71-94c7-901c4048256a/chat', // Match your n8n webhook
+        target: '#n8n-chat',
+        mode: 'popover', // Professional, non-intrusive integration
+        initialMessages: ['Buongiorno! 👋', 'How can I assist you with your dining experience?'],
+        i18n: {
+          en: {
+            title: 'Ristorante Bellavista Bot',
+            subtitle: "I'm here to help with menu or reservation queries 24/7.",
+            inputPlaceholder: 'Type your question...',
+          },
+        }
+      });
+    } catch (error) {
+      console.error('Failed to initialize chat widget:', error);
+    }
+  </script>
+</body>
+</html>
